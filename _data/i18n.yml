@@ -1,47 +1,47 @@
 en:
   nav:
-    home: "Home"
-    publications: "Publications"
-    cv: "CV"
+    home: "Works"
+    about: "About"
+    cv: "Resume"
   hero:
-    pre: "Hello, I am"
-    desc: "PhD Candidate at the University of Glasgow.\nI research Federated Learning, Edge Computing, and LLM Fine-tuning to build resilient, distributed AI systems."
+    pre: "Art Director & Designer"
+    desc: "Crafting visual narratives through imagination. Focused on branding, interactive art, and digital experiences."
   about:
-    title: "About Me"
-    interests: "Research Interests"
-    education: "Education"
+    title: "Philosophy"
+    interests: "Expertise"
+    education: "Experience"
   news:
-    title: "News"
-    hint: "Recent updates & milestones"
+    title: "Exhibitions"
+    hint: "Latest showcases & awards"
   pubs:
-    title: "Selected Publications"
-    view_all: "View All →"
+    title: "Selected Works"
+    view_all: "All Projects →"
   filters:
     all: "All"
-    journal: "Journal"
-    conference: "Conference"
-  footer: "Built with Jekyll."
+    journal: "Branding"
+    conference: "Digital Art"
+  footer: "Curated with heart."
 
 cn:
   nav:
-    home: "首页"
-    publications: "论文"
+    home: "作品"
+    about: "关于"
     cv: "简历"
   hero:
-    pre: "你好，我是"
-    desc: "格拉斯哥大学(University of Glasgow )博士生。研究联邦学习、边缘计算与大模型微调，关注分布式 AI 的韧性。"
+    pre: "艺术指导 & 设计师"
+    desc: "用想象力编织视觉叙事。专注于品牌设计、交互艺术与数字化体验。"
   about:
-    title: "关于我"
-    interests: "研究方向"
-    education: "教育经历"
+    title: "设计哲学"
+    interests: "专业领域"
+    education: "从业经历"
   news:
-    title: "新闻"
-    hint: "最新动态与里程碑"
+    title: "展览动态"
+    hint: "近期展出与荣誉"
   pubs:
-    title: "精选论文"
+    title: "精选作品"
     view_all: "查看全部 →"
   filters:
     all: "全部"
-    journal: "期刊"
-    conference: "会议"
-  footer: "由 Jekyll 构建。"
+    journal: "品牌设计"
+    conference: "数字艺术"
+  footer: "用心呈现。"
