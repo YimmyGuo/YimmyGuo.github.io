@@ -58,50 +58,51 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // 1. 语言切换逻辑
-            const dict = {{ site.data.i18n | jsonify
-        }};
-        const langButtons = document.querySelectorAll('[data-lang-btn]');
-        const transEls = document.querySelectorAll('[data-i18n]');
+            const rawData = '{{ site.data.i18n | jsonify }}';
+            const dict = JSON.parse(rawData) || {};
+            const langButtons = document.querySelectorAll('[data-lang-btn]');
+            const transEls = document.querySelectorAll('[data-i18n]');
 
-        const applyLang = (lang) => {
-            const isCn = lang === 'cn';
-            document.documentElement.lang = isCn ? 'zh' : 'en';
-            localStorage.setItem('lang', lang);
+            const applyLang = (lang) => {
+                const isCn = lang === 'cn';
+                document.documentElement.lang = isCn ? 'zh' : 'en';
+                localStorage.setItem('lang', lang);
 
-            langButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.langBtn === lang));
+                langButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.langBtn === lang));
 
-            transEls.forEach(el => {
-                const path = el.dataset.i18n;
-                const text = path.split('.').reduce((o, k) => o?.[k], dict[lang]);
-                if (text) el.innerHTML = text;
+                transEls.forEach(el => {
+                    const path = el.dataset.i18n;
+                    const text = path.split('.').reduce((o, k) => o?.[k], dict[lang]);
+                    if (text) el.innerHTML = text;
+                });
+            };
+
+            const savedLang = localStorage.getItem('lang') || 'en';
+            applyLang(savedLang);
+            langButtons.forEach(btn => btn.addEventListener('click', () => applyLang(btn.dataset.langBtn)));
+
+            // 2. 艺术背景视差效果
+            document.addEventListener('mousemove', (e) => {
+                const x = (e.clientX / window.innerWidth - 0.5) * 40;
+                const y = (e.clientY / window.innerHeight - 0.5) * 40;
+                gsap.to(".pink", { x: x, y: y, duration: 2, ease: "power2.out" });
+                gsap.to(".blue", { x: -x, y: -y, duration: 2.5, ease: "power2.out" });
+                gsap.to(".green", { x: x * 0.5, y: -y * 0.8, duration: 3, ease: "power2.out" });
             });
-        };
 
-        const savedLang = localStorage.getItem('lang') || 'en';
-        applyLang(savedLang);
-        langButtons.forEach(btn => btn.addEventListener('click', () => applyLang(btn.dataset.langBtn)));
+            // --- 4. 入场动画 ---
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.from("main", { opacity: 0, y: 30, duration: 1, ease: "power2.out" });
 
-        // 2. 艺术背景视差效果
-        document.addEventListener('mousemove', (e) => {
-            const x = (e.clientX / window.innerWidth - 0.5) * 50;
-            const y = (e.clientY / window.innerHeight - 0.5) * 50;
-            gsap.to(".pink", { x: x, y: y, duration: 2 });
-            gsap.to(".blue", { x: -x, y: -y, duration: 2.5 });
-            gsap.to(".green", { x: x * 0.5, y: -y * 0.5, duration: 3 });
-        });
-
-        // 3. 全局入场动画
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.from("main", { opacity: 0, y: 30, duration: 1.2, ease: "power3.out" });
-
-        document.querySelectorAll(".reveal").forEach(el => {
-            gsap.from(el, {
-                opacity: 0, y: 40, duration: 1,
-                scrollTrigger: { trigger: el, start: "top 90%" }
+            document.querySelectorAll(".reveal").forEach(el => {
+                gsap.from(el, {
+                    opacity: 0, y: 30, duration: 0.8,
+                    scrollTrigger: { trigger: el, start: "top 85%" }
+                });
             });
-        });
         });
     </script>
+    <script src="{{ '/assets/js/grid-glow.js' | relative_url }}"></script>
 </body>
 
 </html>
