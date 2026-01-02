@@ -49,7 +49,7 @@ body {
     border-radius: 50%;
     filter: blur(80px);
     opacity: 0.4;
-    animation: move 20s infinite alternate cubic-bezier(0.45, 0, 0.55, 1);
+    animation: move 0s infinite alternate cubic-bezier(0.45, 0, 0.55, 1);
 }
 
 .pink {
@@ -198,6 +198,68 @@ body {
     color: var(--text-muted);
     max-width: 600px;
     margin-bottom: 40px;
+}
+
+/* --- 语言切换器美化 --- */
+.lang-switch {
+    display: flex;
+    gap: 4px;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 4px;
+    border-radius: 100px;
+    margin-left: 20px;
+}
+
+.lang-switch button {
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    padding: 6px 16px;
+    border-radius: 100px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: var(--font-body);
+    transition: all 0.3s ease;
+}
+
+.lang-switch button.active {
+    background: #ffffff;
+    color: var(--text-main);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 修复 Logo 和 导航文字颜色 --- */
+.logo {
+    color: var(--text-main) !important;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    font-family: var(--font-body);
+}
+
+.nav-links a:hover {
+    color: var(--text-main);
+}
+
+/* --- 强制背景气泡运动 --- */
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+    animation: floating 20s infinite alternate ease-in-out;
+}
+
+@keyframes floating {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(50px, 30px) scale(1.1);
+    }
 }
 
 /* 按钮样式 */
