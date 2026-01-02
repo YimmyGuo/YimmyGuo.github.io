@@ -1,0 +1,47 @@
+en:
+  nav:
+    home: "Home"
+    publications: "Publications"
+    cv: "CV"
+  hero:
+    pre: "Hello, I am"
+    desc: "PhD Candidate at the University of Glasgow.\nI research Federated Learning, Edge Computing, and LLM Fine-tuning to build resilient, distributed AI systems."
+  about:
+    title: "About Me"
+    interests: "Research Interests"
+    education: "Education"
+  news:
+    title: "News"
+    hint: "Recent updates & milestones"
+  pubs:
+    title: "Selected Publications"
+    view_all: "View All →"
+  filters:
+    all: "All"
+    journal: "Journal"
+    conference: "Conference"
+  footer: "Built with Jekyll."
+
+cn:
+  nav:
+    home: "首页"
+    publications: "论文"
+    cv: "简历"
+  hero:
+    pre: "你好，我是"
+    desc: "格拉斯哥大学(University of Glasgow )博士生。研究联邦学习、边缘计算与大模型微调，关注分布式 AI 的韧性。"
+  about:
+    title: "关于我"
+    interests: "研究方向"
+    education: "教育经历"
+  news:
+    title: "新闻"
+    hint: "最新动态与里程碑"
+  pubs:
+    title: "精选论文"
+    view_all: "查看全部 →"
+  filters:
+    all: "全部"
+    journal: "期刊"
+    conference: "会议"
+  footer: "由 Jekyll 构建。"

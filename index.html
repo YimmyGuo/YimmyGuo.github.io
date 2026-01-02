@@ -1,0 +1,166 @@
+---
+layout: default
+title: Home
+---
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <span class="hero-pre">Art Director & Visual Designer</span>
+            <h1 class="hero-title">Yiming Guo.</h1>
+            <p class="hero-desc">用想象力捕捉感官，用设计重塑叙事。专注于品牌视觉、交互艺术与跨媒介体验设计。</p>
+            <div class="hero-cta">
+                <a href="#work" class="btn-primary">探索作品集</a>
+                <a href="mailto:{{ site.email }}" class="btn-link">开始合作 &rarr;</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About & Timeline -->
+<section id="about" class="section-pad">
+    <div class="container">
+        <div class="section-header reveal">
+            <h2 class="section-title" data-i18n="about.title">{{ site.data.i18n.en.about.title }}</h2>
+
+
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px;">
+            <div class="reveal">
+                <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 20px;"
+                    data-en="I am currently a PhD student in the KDES Group, School of Computing Science at the University of Glasgow."
+                    data-cn="我目前在格拉斯哥大学计算机学院的 KDES 课题组攻读博士。">
+                    I am currently a PhD student in the <a
+                        href="https://www.gla.ac.uk/schools/computing/research/researchsections/ida-section/knowledgeanddataengineeringsystems/"
+                        class="text-accent">KDES Group</a>, School of Computing Science at the University of Glasgow.
+                </p>
+
+                <p style="font-size: 1.1rem; color: var(--text-secondary);"
+                    data-en="I am dedicated to building robust distributed AI systems. Specifically, my work focuses on creating resilient Federated Learning (FL) frameworks that can withstand availability and security threats. I am also actively exploring distributed machine learning and the fine-tuning of Large Language Models. I have published my findings in leading journals and conferences such as IEEE TMC, IEEE T-IFS and IEEE ICDCS."
+                    data-cn="我致力于构建稳健的分布式 AI 系统，尤其关注能抵御可用性与安全威胁的联邦学习框架。同时探索分布式机器学习与大模型微调，研究成果发表于 IEEE TMC、IEEE T-IFS、IEEE ICDCS 等顶级期刊与会议。">
+                    I am dedicated to building robust distributed AI systems. Specifically, my work focuses on creating
+                    resilient Federated Learning (FL) frameworks that can withstand availability and security threats.
+                    I am also actively exploring distributed machine learning and the fine-tuning of Large Language
+                    Models. I have published my findings in leading journals and conferences such as IEEE TMC, IEEE
+                    T-IFS and IEEE ICDCS.
+                </p>
+
+                <h3 style="margin-top: 40px;" data-i18n="about.interests">{{ site.data.i18n.en.about.interests }}</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <span class="badge">Federated Learning</span>
+                    <span class="badge">Edge Computing</span>
+                    <span class="badge">LLM Fine-tuning</span>
+                    <span class="badge">System Resilience</span>
+                    <span class="badge">Byzantine Fault Tolerance</span>
+                </div>
+            </div>
+
+            <div class="reveal">
+                <h3 style="margin-bottom: 30px;" data-i18n="about.education">{{ site.data.i18n.en.about.education }}
+                </h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-date">2024 - Present</span>
+                        <div class="timeline-role" data-en="PhD Candidate" data-cn="博士研究生">PhD Candidate</div>
+                        <div class="timeline-org" data-en="University of Glasgow" data-cn="格拉斯哥大学">University of Glasgow
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">2021 - 2024</span>
+                        <div class="timeline-role" data-en="Master of Computer Technology" data-cn="计算机技术硕士">Master of
+                            Computer Technology</div>
+                        <div class="timeline-org" data-en="Beijing Institute of Technology" data-cn="北京理工大学">Beijing
+                            Institute of Technology</div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">2017 - 2021</span>
+                        <div class="timeline-role" data-en="Bachelor of Software Engineering" data-cn="软件工程学士">Bachelor
+                            of Software Engineering</div>
+                        <div class="timeline-org" data-en="Dalian University of Technology" data-cn="大连理工大学">Dalian
+                            University of Technology</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- News -->
+<section id="news" class="section-pad news-section">
+    <div class="container">
+        <div class="section-header reveal" style="align-items: center;">
+            <h2 class="section-title" data-i18n="news.title">{{ site.data.i18n.en.news.title }}</h2>
+            <span class="news-hint" data-i18n="news.hint">{{ site.data.i18n.en.news.hint }}</span>
+        </div>
+
+        <div class="news-grid">
+            {% assign news_items = site.data.news | sort: 'date' | reverse %}
+
+            {% if news_items and news_items.size > 0 %}
+            {% for item in news_items limit:6 %}
+            <article class="news-card glass-panel reveal">
+                <div class="news-meta">
+                    <span class="news-date">{{ item.date | date: "%b %d, %Y" }}</span>
+                    {% if item.tag %}
+                    <span class="news-tag">{{ item.tag }}</span>
+                    {% endif %}
+                </div>
+                <h3 class="news-title" data-en="{{ item.title | escape }}"
+                    data-cn="{{ item.title_cn | default: item.title | escape }}">
+                    {{ item.title }}
+                </h3>
+                <p class="news-desc" data-en="{{ item.description | escape }}"
+                    data-cn="{{ item.description_cn | default: item.description | escape }}">
+                    {{ item.description }}
+                </p>
+
+            </article>
+            {% endfor %}
+            {% else %}
+            <p class="news-empty">Stay tuned—updates coming soon.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section id="work" class="section-pad">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Selected Projects</h2>
+            <div class="filter-pills">
+                <span class="badge active">All</span>
+                <span class="badge">Branding</span>
+                <span class="badge">UI/UX</span>
+                <span class="badge">3D Motion</span>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <!-- 模拟项目 1 -->
+            <article class="pub-card glass-panel reveal">
+                <div class="project-image-wrapper">
+                    <img src="project1.jpg" alt="Project">
+                </div>
+                <div class="project-info">
+                    <span class="pub-year">2025 / Branding</span>
+                    <h3 class="pub-title">幻视空间 (Visionary Space)</h3>
+                    <p class="pub-authors">数字沉浸式展览品牌设计</p>
+                </div>
+            </article>
+
+            <!-- 模拟项目 2 -->
+            <article class="pub-card glass-panel reveal">
+                <div class="project-image-wrapper">
+                    <img src="project2.jpg" alt="Project">
+                </div>
+                <div class="project-info">
+                    <span class="pub-year">2024 / UIUX</span>
+                    <h3 class="pub-title">Echo App</h3>
+                    <p class="pub-authors">基于情感共鸣的社交实验平台</p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>

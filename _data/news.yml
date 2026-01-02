@@ -1,0 +1,49 @@
+- date: 2025-12-11
+  title: Paper accepted to IEEE T-IFS!
+  title_cn: "论文被 IEEE T-IFS 接收！"
+  description: "FLgym: Towards Robust and Byzantine-Resilient Federated Learning."
+  description_cn: "FLgym: Towards Robust and Byzantine-Resilient Federated Learning."
+  tag: Publication
+  # url: https://github.com/example/repo
+
+- date: 2025-07-22
+  title: Best Runner-Up Student Paper Award at IEEE ICDCS 2025!
+  title_cn: "荣获ICDCS 2025的Best Runner-Up Student Paper奖！"
+  description: Received for research on Byzantine-resilient FL.
+  description_cn: "关于拜占庭容错联邦学习的研究的成果"
+  tag: Award
+
+- date: 2025-03-27
+  title: Paper accepted to IEEE ICDCS 2025!
+  title_cn: "论文被 ICDCS 2025 接收！"
+  description: "Resilient Inference for Personalized Federated Learning in Edge Environments."
+  description_cn: "Resilient Inference for Personalized Federated Learning in Edge Environments."
+  tag: Publication
+
+- date: 2025-03-27
+  title: Paper accepted to IEEE ICDCS 2025!
+  title_cn: "论文被 ICDCS 2025 接收！"
+  description: "A Robust Byzantine-Resilient Framework for Federated Learning."
+  description_cn: "A Robust Byzantine-Resilient Framework for Federated Learning."
+  tag: Publication
+
+- date: 2025-03-27
+  title: Paper accepted to IEEE ICDCS 2025!
+  title_cn: "论文被 ICDCS 2025 接收！"
+  description: "Unified Parallel Semantic Log Parsing based on Causal Graph Construction for Attack Attribution."
+  description_cn: "Unified Parallel Semantic Log Parsing based on Causal Graph Construction for Attack Attribution."
+  tag: Publication
+
+- date: 2024-10-01
+  title: Joined University of Glasgow!
+  title_cn: "加入格拉斯哥大学！"
+  description: Joined the KDES family in the School of Computing.
+  description_cn: "加入 UofG 计算学院的 KDES 团队"
+  tag: Career
+
+- date: 2024-01-17
+  title: Paper accepted to IEEE TMC!
+  title_cn: "论文被 IEEE TMC 接收！"
+  description: "Making serverless not so cold in edge clouds: A cost-effective online approach."
+  description_cn: "Making serverless not so cold in edge clouds: A cost-effective online approach."
+  tag: Publication

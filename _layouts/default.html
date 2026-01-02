@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+
+
+<body>
+
+    <div class="visual-background">
+        <div class="blob pink"></div>
+        <div class="blob blue"></div>
+        <div class="blob green"></div>
+        <div class="glass-overlay"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <a href="{{ '/' | relative_url }}" class="logo-text">Yiming Guo<span>.</span></a>
+            <div class="nav-links">
+                <a href="#work">Projects</a>
+                <a href="#about">Philosophy</a>
+                <a href="{{ site.cv_url }}" class="nav-cta">Let's Talk</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {{ content }}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. Built with Jekyll.</p>
+            <div style="margin-top: 15px; font-size: 1.2rem;">
+                <a href="mailto:{{ site.email }}" style="margin: 0 10px;"><i class="fas fa-envelope"></i></a>
+                <a href="{{ site.github_url }}" style="margin: 0 10px;"><i class="fab fa-github"></i></a>
+                <a href="{{ site.scholar_url }}" style="margin: 0 10px;"><i class="fas fa-graduation-cap"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dict = {{ site.data.i18n | jsonify
+        }};
+        const resolveKey = (obj, path) => path.split('.').reduce((o, k) => o?.[k], obj);
+        const langButtons = document.querySelectorAll('[data-lang-btn]');
+        const transEls = document.querySelectorAll('[data-i18n], [data-en]');
+        if (!langButtons.length) return;
+
+        const applyLang = (lang) => {
+            const isCn = lang === 'cn';
+            document.documentElement.lang = isCn ? 'zh' : 'en';
+            localStorage.setItem('lang', lang);
+            langButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.langBtn === lang));
+            transEls.forEach(el => {
+                const key = el.dataset.i18n;
+                const fromDict = key ? resolveKey(dict[lang], key) : null;
+                const fallback = el.dataset[lang];
+                const text = fromDict ?? fallback;
+                if (text) el.innerHTML = text;
+            });
+        };
+
+        applyLang(localStorage.getItem('lang') || 'en');
+        langButtons.forEach(btn => btn.addEventListener('click', () => applyLang(btn.dataset.langBtn)));
+});
+    </script>
+
+    <script>
+        // Global Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Fade in main content
+        gsap.from("main", { opacity: 0, duration: 1, y: 20, ease: "power2.out" });
+
+        // Animate elements with .reveal class on scroll
+        const revealElements = document.querySelectorAll(".reveal");
+        revealElements.forEach(el => {
+            gsap.from(el, {
+                opacity: 0, y: 30, duration: 0.8,
+                scrollTrigger: { trigger: el, start: "top 85%" }
+            });
+        });
+    </script>
+
+    <script src="{{ '/assets/js/grid-glow.js' | relative_url }}"></script>
+
+    <script>
+        // Global Animations (Existing GSAP code)
+        gsap.registerPlugin(ScrollTrigger);
+        // ...
+    </script>
+</body>
+
+</html>

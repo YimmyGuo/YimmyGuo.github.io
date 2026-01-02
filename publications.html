@@ -1,0 +1,79 @@
+---
+layout: default
+title: Publications
+---
+
+<section class="section-pad">
+    <div class="container">
+        <div class="section-header">
+            <h1 class="section-title" data-i18n="pubs.title">All Publications</h1>
+        </div>
+
+        <!-- Filter Placeholder (Functional logic can be added with JS) -->
+        <div style="margin-bottom: 40px; display: flex; gap: 15px;">
+            <button class="badge filter-btn" data-filter="all" data-i18n="filters.all">All</button>
+            <button class="badge filter-btn" data-filter="journal" data-i18n="filters.journal">Journal</button>
+            <button class="badge filter-btn" data-filter="conference" data-i18n="filters.conference">Conference</button>
+        </div>
+
+        <div class="grid-2">
+            <!-- Iterate through all posts that have 'pub' in frontmatter -->
+            {% assign all_pubs = site.posts | where_exp:"item", "item.pub" | sort: 'date' | reverse %}
+
+            {% for pub in all_pubs %}
+            {% assign cat = pub.category | default: 'uncategorized' | downcase %}
+            <article class="pub-card glass-panel reveal" data-category="{{ cat }}">
+                <div style="display: flex; justify-content: space-between; align-items: start;">
+                    <div class="pub-year">{{ pub.pub_date }}</div>
+                    {% if pub.selected %}
+                    <span
+                        style="font-size: 0.7rem; color: var(--accent); border: 1px solid var(--accent); padding: 2px 6px; border-radius: 4px;">SELECTED</span>
+                    {% endif %}
+                </div>
+
+                <h3 class="pub-title"><a href="{{ pub.url | relative_url }}">{{ pub.title }}</a></h3>
+
+                <div class="pub-authors">
+                    {% for author in pub.authors %}
+                    {% if author == "Ke Xiao" %}
+                    <strong style="color: var(--text-primary)">{{ author }}</strong>
+                    {% else %}
+                    {{ author }}
+                    {% endif %}
+                    {% unless forloop.last %}, {% endunless %}
+                    {% endfor %}
+                </div>
+
+                <div class="pub-venue">{{ pub.pub }}</div>
+
+                <div class="pub-links">
+                    {% if pub.pdf %} <a href="{{ pub.pdf }}"><i class="far fa-file-pdf"></i> PDF</a> {% endif %}
+                    <a href="{{ pub.url | relative_url }}">Read More &rarr;</a>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<script>
+    (function () {
+        const buttons = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.pub-card');
+        if (!buttons.length || !cards.length) return;
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+                buttons.forEach(b => b.classList.remove('active-filter'));
+                btn.classList.add('active-filter');
+
+                cards.forEach(card => {
+                    const cat = (card.dataset.category || 'uncategorized').toLowerCase();
+                    const show = filter === 'all' || cat === filter;
+                    card.style.display = show ? '' : 'none';
+                });
+            });
+        });
+    })();
+</script>
