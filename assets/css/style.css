@@ -1,11 +1,16 @@
 /* assets/css/style.css */
 :root {
-    --primary-text: #1d1d1f;
-    --secondary-text: #515154;
-    --accent-color: #ff2d55;
-    --glass-bg: rgba(255, 255, 255, 0.4);
-    --font-main: 'Inter', sans-serif;
-    --font-display: 'Space Grotesk', sans-serif;
+    --bg-color: #ffffff;
+    --text-primary: #1d1d1f;
+    /* 苹果风格的深黑 */
+    --text-secondary: #6e6e73;
+    /* 优雅的深灰 */
+    --accent: #ff2d55;
+    /* 鲜亮的粉红/红作为强调色 */
+    --nav-bg: rgba(255, 255, 255, 0.7);
+    /* 半透明白 */
+    --font-head: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
 }
 
 /* --- RESET & BASE --- */
@@ -67,11 +72,11 @@ h5 {
 }
 
 .pink {
-    width: 500px;
-    height: 500px;
+    width: 700px;
+    height: 700px;
     background: #ffcfe2;
     top: -5%;
-    left: -5%;
+    left: 0%;
 }
 
 .blue {
@@ -145,27 +150,21 @@ h5 {
 }
 
 .lang-switch {
-    display: inline-flex;
-    gap: 6px;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 4px;
-    border-radius: 999px;
-    border: 1px solid var(--card-border);
+    background: rgba(0, 0, 0, 0.05);
+    border: none;
+    border-radius: 12px;
 }
 
 .lang-switch button {
-    border: none;
-    background: transparent;
     color: var(--text-secondary);
-    padding: 6px 10px;
-    border-radius: 999px;
-    cursor: pointer;
-    font-weight: 600;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
 }
 
 .lang-switch button.active {
-    background: var(--accent);
-    color: #0b0b0f;
+    background: #ffffff;
+    color: var(--text-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .filter-btn.active-filter {
@@ -208,39 +207,57 @@ h5 {
     position: fixed;
     top: 0;
     width: 100%;
-    height: var(--nav-height);
-    background: rgba(5, 5, 5, 0.8);
-    backdrop-filter: blur(15px);
+    height: 70px;
+    /* 稍微矮一点更精致 */
+    background: var(--nav-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    /* 核心：高强度毛玻璃 */
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     z-index: 1000;
-    border-bottom: 1px solid var(--card-border);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    /* 极细的分割线 */
+    display: flex;
+    align-items: center;
 }
 
 .nav-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
+    width: 100%;
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-family: var(--font-head);
+    font-size: 1.4rem;
     font-weight: 700;
-    letter-spacing: -0.5px;
+    color: var(--text-primary) !important;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--accent);
 }
 
 .nav-links {
     display: flex;
-    gap: 40px;
+    gap: 35px;
 }
 
 .nav-links a {
+    font-family: var(--font-body);
     font-size: 0.95rem;
     font-weight: 500;
-    opacity: 0.7;
-    position: relative;
+    color: var(--text-secondary);
+    opacity: 1;
+    /* 取消之前的透明度设置 */
+    transition: color 0.3s ease;
 }
 
-.nav-links a:hover,
+.nav-links a:hover {
+    color: var(--text-primary);
+}
+
 .nav-links a.active {
     opacity: 1;
     color: var(--accent);

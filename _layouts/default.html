@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap"
         rel="stylesheet">
 
     <!-- Icons -->
@@ -32,11 +32,17 @@
 
     <nav class="navbar">
         <div class="container nav-inner">
-            <a href="{{ '/' | relative_url }}" class="logo-text">Yiming Guo<span>.</span></a>
+            <a href="{{ '/' | relative_url }}" class="logo">Yiming Guo<span>.</span></a>
+
             <div class="nav-links">
-                <a href="#work">Projects</a>
-                <a href="#about">Philosophy</a>
-                <a href="{{ site.cv_url }}" class="nav-cta">Let's Talk</a>
+                <a href="{{ '/' | relative_url }}">Works</a>
+                <a href="#about">About</a>
+                <a href="{{ site.cv_url }}" target="_blank">Resume</a>
+            </div>
+
+            <div class="lang-switch">
+                <button type="button" data-lang-btn="en" class="active">EN</button>
+                <button type="button" data-lang-btn="cn">CN</button>
             </div>
         </div>
     </nav>
