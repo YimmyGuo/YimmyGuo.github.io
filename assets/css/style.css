@@ -61,7 +61,7 @@ h5 {
 .blob {
     position: absolute;
     border-radius: 50%;
-    filter: blur(80px);
+    filter: blur(120px);
     opacity: 0.5;
     animation: move 20s infinite alternate;
 }
