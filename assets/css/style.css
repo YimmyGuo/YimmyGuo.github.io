@@ -61,7 +61,7 @@ h5 {
 .blob {
     position: absolute;
     border-radius: 50%;
-    filter: blur(120px);
+    filter: blur(80px);
     opacity: 0.5;
     animation: move 20s infinite alternate;
 }
@@ -70,16 +70,16 @@ h5 {
     width: 500px;
     height: 500px;
     background: #ffcfe2;
-    top: -10%;
-    left: -10%;
+    top: -5%;
+    left: -5%;
 }
 
 .blue {
     width: 600px;
     height: 600px;
     background: #c6e7ff;
-    bottom: -10%;
-    right: -10%;
+    bottom: -5%;
+    right: -5%;
     animation-duration: 25s;
 }
 
@@ -87,8 +87,8 @@ h5 {
     width: 450px;
     height: 450px;
     background: #d4ffd6;
-    top: 40%;
-    left: 30%;
+    top: 30%;
+    left: 70%;
     animation-duration: 30s;
 }
 
