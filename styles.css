@@ -5510,6 +5510,23 @@ body.green-page .footer-bottom a {
   width: 100%;
 }
 
+/* Keep embedded videos inside the original project video frames. */
+.video-frame > iframe {
+  aspect-ratio: 16 / 9;
+  height: auto !important;
+  inset: auto !important;
+  position: static !important;
+  width: 100% !important;
+}
+
+.market-page .market-video > iframe {
+  aspect-ratio: 2160 / 2908;
+  height: min(78vh, 760px) !important;
+  margin: 0 auto;
+  max-width: 100%;
+  width: auto !important;
+}
+
 @media (max-width: 760px) {
   body.newcomer-page .site-header,
   body.retrofit-page .site-header,
@@ -5565,6 +5582,11 @@ body.green-page .footer-bottom a {
   body.green-page .pager-link.next {
     align-items: flex-start;
     text-align: left;
+  }
+
+  .market-page .market-video > iframe {
+    height: auto !important;
+    width: 100% !important;
   }
 }
 
