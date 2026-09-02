@@ -5501,6 +5501,15 @@ body.green-page .footer-bottom a {
   padding-top: clamp(18px, 3vw, 34px);
 }
 
+.video-frame iframe {
+  border: 0;
+  display: block;
+  height: 100%;
+  inset: 0;
+  position: absolute;
+  width: 100%;
+}
+
 @media (max-width: 760px) {
   body.newcomer-page .site-header,
   body.retrofit-page .site-header,
