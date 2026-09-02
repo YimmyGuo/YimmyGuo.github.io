@@ -2049,8 +2049,10 @@ p {
 }
 
 #website-design {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   max-width: none;
-  width: 100%;
+  width: 100vw;
 }
 
 .figma-crop {
