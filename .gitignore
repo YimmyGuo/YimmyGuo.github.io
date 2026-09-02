@@ -1,0 +1,6 @@
+*.DS_Store
+
+# Keep the published repository lightweight. Assets already tracked in Git are
+# the ones referenced by the HTML pages; local source/reference media stays out.
+public/**
+_asset-originals/
