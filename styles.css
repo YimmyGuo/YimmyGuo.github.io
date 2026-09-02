@@ -180,6 +180,7 @@ p {
   background: #050505;
   margin: 0 auto;
   overflow: hidden;
+  position: relative;
   width: min(100%, 900px);
 }
 
@@ -5502,29 +5503,62 @@ body.green-page .footer-bottom a {
 }
 
 .video-frame iframe {
+  aspect-ratio: 16 / 9;
   border: 0;
   display: block;
-  height: 100%;
-  inset: 0;
-  position: absolute;
+  height: auto;
+  max-width: 100%;
+  position: static;
+  transform: none;
   width: 100%;
 }
 
 /* Keep embedded videos inside the original project video frames. */
 .video-frame > iframe {
   aspect-ratio: 16 / 9;
+  display: block !important;
   height: auto !important;
   inset: auto !important;
   position: static !important;
+  transform: none !important;
   width: 100% !important;
 }
 
 .market-page .market-video > iframe {
   aspect-ratio: 2160 / 2908;
+  display: block !important;
   height: min(78vh, 760px) !important;
+  inset: auto !important;
   margin: 0 auto;
   max-width: 100%;
+  position: static !important;
+  transform: none !important;
   width: auto !important;
+}
+
+.market-page .market-hero {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.market-page .market-hero iframe {
+  display: none !important;
+}
+
+.market-page .market-hero > *:not(img):not(.market-keywords) {
+  display: none !important;
+}
+
+.market-page .market-video-section {
+  position: relative;
+  z-index: 2;
+}
+
+.market-page .market-video {
+  contain: layout paint;
+  overflow: hidden;
+  position: relative;
 }
 
 @media (max-width: 760px) {
